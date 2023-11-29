@@ -17,3 +17,6 @@
 - 資料庫: Weaviate (Vector Database)
 - 資料處理: 網頁爬蟲, 資料清洗
 - AIGC: OpenAI (GPT-4-Turbo) + AzureOpenAI
+
+### 參考資料
+- 登入介面模板: https://github.com/HQEasy/login-page-template
