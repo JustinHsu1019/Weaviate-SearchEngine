@@ -6,8 +6,8 @@
 ## 使用技術
 ### 部署工具
 - Google Cloud Platform
-- Pythonanywhere
-- 000webhost
+- PythonAnywhere
+- 000WebHost
 - GitHub Pages
 - Linux + Docker
 
