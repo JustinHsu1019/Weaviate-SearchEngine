@@ -10,6 +10,7 @@ if (!isset($_SESSION['username'])) {
 
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>金管會裁罰案件查詢系統</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -17,24 +18,27 @@ if (!isset($_SESSION['username'])) {
         body {
             background-color: #f4f4f4;
         }
+
         #chatWindow {
-            height: 300px;
+            flex-grow: 1;
             overflow-y: auto;
             border: 1px solid #ccc;
             padding: 10px;
-            margin-bottom: 10px;
             background-color: #fff;
+            margin-bottom: 10px;
         }
+
         .message {
             margin: 5px;
             padding: 10px;
             background-color: #e2e2e2;
             border-radius: 5px;
-            display: block;
         }
+
         .message.you {
             text-align: right;
         }
+
         #chatWindow::-webkit-scrollbar {
             width: 8px;
         }
@@ -51,21 +55,36 @@ if (!isset($_SESSION['username'])) {
         #chatWindow::-webkit-scrollbar-thumb:hover {
             background: #555;
         }
+
+        .chat-container {
+            display: flex;
+            flex-direction: column;
+            height: 95vh;
+        }
+
+        .input-group {
+            width: 100%;
+        }
     </style>
 </head>
+
 <body>
-    <div class="container my-4">
+    <div class="container my-4 chat-container">
         <h2 class="text-center">金管會裁罰案件查詢系統</h2>
         <div id="chatWindow">
             <!-- Messages will appear here -->
         </div>
-        <input type="text" id="messageInput" class="form-control" placeholder="Type a message...">
-        <button onclick="sendMessage()" class="btn btn-primary mt-2">Send</button>
+        <div class="input-group">
+            <input type="text" id="messageInput" class="form-control" placeholder="Type a message...">
+            <div class="input-group-append">
+                <button onclick="sendMessage()" class="btn btn-primary">Send</button>
+            </div>
+        </div>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script>
-        document.getElementById("messageInput").addEventListener("keyup", function(event) {
+        document.getElementById("messageInput").addEventListener("keyup", function (event) {
             if (event.key === "Enter") {
                 sendMessage();
             }
@@ -89,18 +108,19 @@ if (!isset($_SESSION['username'])) {
                 url: 'YOUR_BACKEND_URL/chat',
                 type: 'POST',
                 data: { mess: message },
-                success: function(response) {
+                success: function (response) {
                     var newResponseDiv = document.createElement("div");
                     newResponseDiv.classList.add("message");
                     newResponseDiv.textContent = "Bot: " + response;
                     chatWindow.appendChild(newResponseDiv);
                     chatWindow.scrollTop = chatWindow.scrollHeight;
                 },
-                error: function() {
+                error: function () {
                     console.error("Error sending message");
                 }
             });
         }
     </script>
 </body>
+
 </html>
