@@ -29,7 +29,7 @@ if (!isset($_SESSION['username'])) {
             padding: 10px;
             background-color: #fff;
             margin-bottom: 10px;
-            max-height: 75vh;
+            max-height: 80vh;
         }
 
         .message {
