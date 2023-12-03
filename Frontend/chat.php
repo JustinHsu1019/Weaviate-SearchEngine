@@ -19,28 +19,23 @@ if (!isset($_SESSION['username'])) {
         body {
             background-color: #f4f4f4;
             margin: 0;
-            padding-bottom: 60px;
+            padding-bottom: 70px;
+        }
+
+        .chat-container {
+            display: flex;
+            flex-direction: column;
+            height: 95vh;
+            padding: 10px 0;
         }
 
         #chatWindow {
             flex-grow: 1;
             overflow-y: auto;
             border: 1px solid #ccc;
+            margin-bottom: 10px;
             padding: 10px;
             background-color: #fff;
-            margin-bottom: 10px;
-            max-height: 80vh;
-        }
-
-        .message {
-            margin: 5px;
-            padding: 10px;
-            background-color: #e2e2e2;
-            border-radius: 5px;
-        }
-
-        .message.you {
-            text-align: right;
         }
 
         *::-webkit-scrollbar {
@@ -60,10 +55,8 @@ if (!isset($_SESSION['username'])) {
             background: #555;
         }
 
-        .chat-container {
-            display: flex;
-            flex-direction: column;
-            height: 95vh;
+        #messageInput {
+            font-size: 16px;
         }
 
         .input-group {
@@ -74,23 +67,44 @@ if (!isset($_SESSION['username'])) {
             background-color: #fff;
         }
 
-        #messageInput {
-            font-size: 16px;
+        .input-group-prepend .btn {
+            padding: 10px 15px;
+            font-size: 18px;
+        }
+
+        .form-control {
+            padding: 10px;
+            font-size: 18px;
+            height: auto;
+        }
+
+        @media (max-width: 768px) {
+
+            .input-group-prepend .btn,
+            .form-control {
+                padding: 12px 20px;
+                font-size: 20px;
+            }
+        }
+
+        .input-group .btn {
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
         }
     </style>
 </head>
 
 <body>
-    <div class="container my-4 chat-container">
+    <div class="container-fluid chat-container">
         <h2 class="text-center">金管會裁罰案件查詢系統</h2>
         <div id="chatWindow">
             <!-- Messages will appear here -->
         </div>
         <div class="input-group">
-            <input type="text" id="messageInput" class="form-control" placeholder="Type a message...">
-            <div class="input-group-append">
+            <div class="input-group-prepend">
                 <button onclick="sendMessage()" class="btn btn-primary">Send</button>
             </div>
+            <input type="text" id="messageInput" class="form-control" placeholder="Type a message...">
         </div>
     </div>
 
