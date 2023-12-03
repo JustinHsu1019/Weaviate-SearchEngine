@@ -5,6 +5,7 @@
 
 ## 使用技術
 ### 部署工具
+- GoDaddy + CloudFlare
 - Google Cloud Platform
 - PythonAnywhere
 - 000WebHost
