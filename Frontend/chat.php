@@ -12,6 +12,7 @@ if (!isset($_SESSION['username'])) {
 <html>
 
 <head>
+    <meta charset="utf-8">
     <title>金管會裁罰案件查詢系統</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <style>
