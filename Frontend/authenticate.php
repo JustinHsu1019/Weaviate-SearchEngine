@@ -16,6 +16,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
     $password = $_POST['password'];
 
     if ($username === $hardcodedUsername && $password === $hardcodedPassword) {
+        $_SESSION['username'] = $username;
         $payload = [
             "username" => $username
         ];
