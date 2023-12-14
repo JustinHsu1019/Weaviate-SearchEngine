@@ -1,11 +1,27 @@
 <?php
+require_once 'vendor/autoload.php';
+use Firebase\JWT\JWT;
+use Firebase\JWT\Key;
+
 session_start();
 
-if (!isset($_SESSION['username'])) {
+if (!isset($_GET['token'])) {
     header("location: index.php");
     exit;
 }
 
+try {
+    $decoded = JWT::decode($_GET['token'], new Key('your_secret_key', 'HS256'));
+    $username = $decoded->username;
+
+    if ($username !== $hardcodedUsername) {
+        header("location: index.php?login=failed");
+        exit;
+    }
+} catch (\Exception $e) {
+    header("location: index.php?login=failed");
+    exit;
+}
 ?>
 
 <!DOCTYPE html>
