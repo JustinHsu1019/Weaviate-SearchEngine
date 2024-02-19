@@ -1,9 +1,16 @@
 <?php
+session_start();
+
 require_once 'vendor/autoload.php';
-use Firebase\JWT\JWT;
+use Firebase\JWT\JWT as FirebaseJWT;
 use Firebase\JWT\Key;
 
-session_start();
+$hardcodedUsername = "YOUR_USERNAME";
+
+if (!isset($_SESSION['username'])) {
+    header("location: index.php");
+    exit;
+}
 
 if (!isset($_GET['token'])) {
     header("location: index.php");
@@ -11,7 +18,7 @@ if (!isset($_GET['token'])) {
 }
 
 try {
-    $decoded = JWT::decode($_GET['token'], new Key('your_secret_key', 'HS256'));
+    $decoded = FirebaseJWT::decode($_GET['token'], new Key('your_secret_key', 'HS256'));
     $username = $decoded->username;
 
     if ($username !== $hardcodedUsername) {
