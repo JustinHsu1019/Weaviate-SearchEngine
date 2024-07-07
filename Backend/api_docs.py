@@ -17,8 +17,8 @@ app = Flask(__name__)
 CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type, Qs-PageCode, Cache-Control'
 
-api = Api(app, version='1.0', title='AllPass API',
-          description='AllPass API',
+api = Api(app, version='1.0', title='Swagger UI',
+          description='SearchEngine API',
           )
 
 ns = api.namespace('api', description='Chatbot operations')
