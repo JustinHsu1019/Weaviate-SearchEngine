@@ -1,3 +1,5 @@
+# crontab -e
+# @reboot source /home/justin/Weaviate-SearchEngine/testrag/bin/activate && nohup python3 /home/justin/Weaviate-SearchEngine/monitor.py &
 import requests
 import time
 import subprocess
