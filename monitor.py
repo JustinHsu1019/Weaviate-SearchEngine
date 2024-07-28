@@ -13,7 +13,7 @@ def check_service():
 
 def restart_service():
     print("Service is down. Restarting service...")
-    subprocess.run(["nohup", "python3", "backend/api_docs.py", "&"])
+    subprocess.run(["nohup", "python3", "Backend/api_docs.py", "&"])
 
 if __name__ == "__main__":
     while True:
